@@ -11,7 +11,6 @@ public class view {
     @GetMapping("/index")
     public String view()
     {
-        System.out.println("hello git ");
         return "index";
     }
 
