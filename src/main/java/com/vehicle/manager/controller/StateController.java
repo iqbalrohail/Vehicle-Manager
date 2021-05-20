@@ -35,17 +35,13 @@ public class StateController {
 
 
     @GetMapping("/states")
-    public String getCountries(Model model , HttpSession session) {
+    public String getCountries(Model model, HttpSession session) {
 
-            List<State> stateList = this.stateService.getStates();
-            List<Country> countryList = this.countryService.getCountries();
-
-            System.out.println("welcome to for eachhhhhhh");
-
-
-           model.addAttribute("countries" , countryList);
-            model.addAttribute("states", stateList);
-
+        List<State> stateList = this.stateService.getStates();
+        List<Country> countryList = this.countryService.getCountries();
+        System.out.println("welcome to for eachhhhhhh");
+        model.addAttribute("countries", countryList);
+        model.addAttribute("states", stateList);
         return "State";
     }
 
@@ -75,9 +71,8 @@ public class StateController {
 
     @GetMapping("/countryDetail")
     @ResponseBody
-    public  Optional<Country>  getCountryByCountryId( int countryid)
-    {
-     return this.countryService.getCountryById(countryid);
+    public Optional<Country> getCountryByCountryId(int countryid) {
+        return this.countryService.getCountryById(countryid);
     }
 
 
