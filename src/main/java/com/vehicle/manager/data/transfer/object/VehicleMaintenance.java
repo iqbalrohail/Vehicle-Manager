@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class VehicleMaintenance extends Auditable<String> {
+public class VehicleMaintenance  {
 		
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
