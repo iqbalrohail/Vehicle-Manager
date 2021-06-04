@@ -39,7 +39,7 @@ intellij-idea-community
 
 # 5 Start you application as Java apllication
 
-/SmartContactManagementSystem/src/main/java/com/smart/SmartContactManagerApplication.java
+/src/main/java/com/vehicle/manager/VehicleManagementSystemApplication.java
 
 # 6 Application will run on this port in your browser
 
