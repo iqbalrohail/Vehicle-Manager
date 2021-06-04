@@ -27,11 +27,11 @@ public class VehicleHire {
 	@Column(name="id")
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name="vehicleid", insertable=false, updatable=false)
-	private Vehicle vehicle;
-	private Integer vehicleid;
-	
+//	@ManyToOne
+//	@JoinColumn(name="vehicleid", insertable=false, updatable=false)
+//	private Vehicle vehicle;
+//	private Integer vehicleid;
+//
 	@DateTimeFormat(pattern = "yyyy-MM-dd")	
 	private Date dateOut;
 	
