@@ -31,11 +31,11 @@ public class VehicleMovement {
 	@Column(name="id")
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name="vehicleid", insertable=false, updatable=false)
-	private Vehicle vehicle;
-	private int vehicleid;
-	
+//	@ManyToOne
+//	@JoinColumn(name="vehicleid", insertable=false, updatable=false)
+//	private Vehicle vehicle;
+//	private int vehicleid;
+//
 	@ManyToOne
 	@JoinColumn(name="locationid1", insertable=false, updatable=false)
 	private Location location1;
