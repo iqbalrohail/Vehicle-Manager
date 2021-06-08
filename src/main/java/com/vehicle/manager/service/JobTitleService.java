@@ -68,7 +68,7 @@ public class JobTitleService {
         }
     }
 
-    public void deletejobTitle(int id)
+    public void deleteJobTitles(int id)
     {
         try {
 

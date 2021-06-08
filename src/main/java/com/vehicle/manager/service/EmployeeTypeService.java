@@ -68,7 +68,7 @@ public class EmployeeTypeService {
         }
     }
 
-    public void deleteEmployeeType(int id)
+    public void deleteEmployeeTypes(int id)
     {
         try {
 
