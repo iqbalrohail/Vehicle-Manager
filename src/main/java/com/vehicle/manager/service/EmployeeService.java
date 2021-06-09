@@ -4,9 +4,15 @@ import com.vehicle.manager.data.transfer.object.Employee;
 import com.vehicle.manager.data.transfer.object.MessageDto;
 import com.vehicle.manager.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,9 +26,14 @@ public class EmployeeService {
     private HttpSession session;
 
 
-    public void helperAddEmployees(Employee employee)
+    public void helperAddEmployees(Employee employee )
     {
         try {
+
+
+
+
+
             this.employeeRepository.saveAndFlush(employee);
             session.setAttribute("message", new MessageDto("Employee details have been added !", "alert-success"));
 
@@ -44,9 +55,9 @@ public class EmployeeService {
         return this.employeeRepository.findAll();
     }
 
-    public void addEmployees(Employee employee)
+    public void addEmployees(Employee employee )
     {
-        helperAddEmployees(employee);
+        helperAddEmployees(employee );
     }
 
     public Optional<Employee> updateEmployeeById(int id)

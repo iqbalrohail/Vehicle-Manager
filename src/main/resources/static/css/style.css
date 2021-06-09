@@ -9903,3 +9903,14 @@ span.customSelect.changed {
 #sendmessage.show, #errormessage.show, .show {
 	display:block;
 }
+
+.MyProfilePicture{
+
+    width:35px;
+    height:35px;
+    object-fit:cover;
+    border-radius:50%;
+    border:1px solid black;
+
+
+}
