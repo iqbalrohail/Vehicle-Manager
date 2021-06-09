@@ -15,7 +15,7 @@ apt install openjdk-11-jre-headless
 
 apt install openjdk-11-jdk-headless
 
-# 3 Install Mysql and create a database smart_db
+# 3 Install Mysql and create a database fleet_db
 
 sudo apt update 
 
