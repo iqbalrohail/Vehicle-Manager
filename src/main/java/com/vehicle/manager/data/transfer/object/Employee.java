@@ -24,9 +24,7 @@ public class Employee extends Person {
 	@JoinColumn(name="employeetypeid", insertable=false, updatable=false)
 	private EmployeeType employeeType;
 	private Integer employeetypeid;
-	private String photo;
-	private String username;
-	
+
 	@ManyToOne
 	@JoinColumn(name="jobtitleid", insertable=false, updatable=false)
 	private JobTitle jobTitle;
