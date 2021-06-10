@@ -9904,6 +9904,7 @@ span.customSelect.changed {
 	display:block;
 }
 
+/*image styling*/
 .MyProfilePicture{
 
     width:35px;
@@ -9911,6 +9912,4 @@ span.customSelect.changed {
     object-fit:cover;
     border-radius:50%;
     border:1px solid black;
-
-
 }
