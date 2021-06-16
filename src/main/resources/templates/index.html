@@ -272,9 +272,11 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="" src="" th:src="@{'/img/'+${user.photo}}" width="30" height="30">
                             </span>
-                            <span class="username">Jenifer Smith</span>
+
+                            <span class="username" th:text="${user.username}">Jenifer Smith</span>
+
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
