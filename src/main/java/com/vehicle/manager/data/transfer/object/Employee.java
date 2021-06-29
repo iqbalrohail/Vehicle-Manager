@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -32,4 +33,10 @@ public class Employee extends Person {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")	
 	private Date hireDate;
+
+	@ManyToOne
+	@JsonIgnore
+	private User user;
+
+
 }

@@ -9,7 +9,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Login Page 2 | Creative - Bootstrap 3 Responsive Admin Template</title>
+  <title>Register</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -49,6 +49,17 @@
         enctype="multipart/form-data"
   >
     <div class="login-wrap">
+
+      <div th:if="${session.message}" th:classappend="${session.message.type}"
+           class="alert alert-primary text-center" role="alert">
+        <p th:text="${session.message.content}">
+        </p>
+        <th:block th:text="${#session.removeAttribute('message')}">
+
+        </th:block>
+      </div>
+
+
       <p class="login-img"><i class="icon_lock_alt"></i></p>
       <div class="input-group">
         <span class="input-group-addon"><i class="icon_profile"></i></span>
@@ -69,6 +80,7 @@
         <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
       </label>
       <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+      <a class="btn btn-warning btn-lg btn-block"  th:href="@{/login}">Log in</a>
     </div>
   </form>
   <div class="text-right">

@@ -1,17 +1,17 @@
 package com.vehicle.manager.data.transfer.object;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,4 +25,8 @@ public class User {
 	private String username;
 	private String password;
 	private String photo;
+
+
+	@OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.LAZY ,mappedBy = "user")
+	private List<Employee> employeeList = new ArrayList<>();
 }

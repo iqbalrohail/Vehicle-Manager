@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,8 +38,8 @@ public class EmployeeController {
     private JobTitleService jobTitleService;
 
     @GetMapping("/employees")
-    public String getEmployees(Model model) {
-        List<Employee> employees = this.employeeService.getEmployees();
+    public String getEmployees(Model model , Principal principal ) {
+        List<Employee> employees = this.employeeService.getEmployees(principal);
         List<EmployeeType> employeeTypes = this.employeeTypeService.getEmployeeTypes();
         List<JobTitle> jobTitles = this.jobTitleService.getJobTitles();
         List<State> stateList = this.stateService.getStates();
@@ -52,7 +53,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees/add")
-    public String addEmployees(Employee employee  , @RequestParam("EmployeePhoto") MultipartFile file) throws IOException {
+    public String addEmployees(Employee employee  , @RequestParam("EmployeePhoto") MultipartFile file , Principal principal) throws IOException {
 
         if (file.isEmpty()) {
             employee.setPhoto("defaultPic.jpeg");
@@ -62,7 +63,7 @@ public class EmployeeController {
             Files.copy(file.getInputStream(), Paths.get(saveFile.getAbsolutePath() + File.separator + file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
         }
 
-        this.employeeService.addEmployees(employee);
+        this.employeeService.addEmployees(employee , principal);
         return "redirect:/employees";
     }
 

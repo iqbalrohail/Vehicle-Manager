@@ -29,7 +29,13 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                         "/resources/**",
                         "/css/**",
                         "/fonts/**",
-                        "/img/**").permitAll()
+                        "/img/**").permitAll().
+                                antMatchers(
+                "/register",
+                "/resources/**",
+                "/css/**",
+                "/fonts/**",
+                "/img/**").permitAll().antMatchers("/do_register").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

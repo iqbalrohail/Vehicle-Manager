@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
@@ -44,6 +45,6 @@ public class Client {
 	@JoinColumn(name="stateid", insertable=false, updatable=false)
 	private State state;	
 	private Integer stateid;
-	
 	private String details;
+
 }

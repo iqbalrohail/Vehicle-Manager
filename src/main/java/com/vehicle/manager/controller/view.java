@@ -1,5 +1,6 @@
 package com.vehicle.manager.controller;
 
+import com.vehicle.manager.data.transfer.object.MessageDto;
 import com.vehicle.manager.data.transfer.object.User;
 import com.vehicle.manager.repositories.UserRepository;
 import org.dom4j.rule.Mode;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
 import java.io.Console;
 import java.security.Principal;
 
@@ -22,7 +24,6 @@ public class view {
     {
         String currentUserName =principal.getName();
        User user =  userRepository.findByUsername(currentUserName);
-        System.out.println(user);
        model.addAttribute("user" , user);
         return "index";
     }
@@ -34,8 +35,9 @@ public class view {
     }
 
     @GetMapping("/logout")
-    public String logout()
+    public String logout(HttpSession session)
     {
+        session.setAttribute("message",new MessageDto("you have been logged out !" , "alert-danger"));
         return "login";
     }
 
@@ -45,8 +47,5 @@ public class view {
         model.addAttribute("user" , new User());
         return "register";
     }
-
-
-
 
 }
