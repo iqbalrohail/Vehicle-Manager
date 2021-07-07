@@ -5,6 +5,7 @@ import com.vehicle.manager.data.transfer.object.User;
 import com.vehicle.manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @GetMapping("/users")
     public String getUsers()
     {
@@ -42,6 +46,7 @@ public class UserController {
                 File saveFile = new ClassPathResource("static/img").getFile();
                 Files.copy(file.getInputStream(), Paths.get(saveFile.getAbsolutePath() + File.separator + file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
             }
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             userService.addUsers(user);
             model.addAttribute("user" , new User());
             session.setAttribute("message",new MessageDto("user have been registered !" , "alert-warning"));
