@@ -19,7 +19,7 @@ public class view {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/index")
+    @GetMapping({"/" , "/index"})
     public String view(Model model , Principal principal)
     {
         String currentUserName =principal.getName();
